@@ -7,19 +7,24 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+//This is the Scene Controller class
 public class SceneControl {
 	
 	private Stage stage;
 	private Scene scene;
 	private Parent root; 
 	
+	//These methods are used as the output when the user inputs via Button.
+	/*Each method loads the specified fxml scene file, creates a new Stage,
+	 sets the Scene to the Stage, then displays it changing the view for the user. 
+	 */
 	
 	public void toMainScene(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
+		stage.setResizable(false);
 		stage.show();
 	}
 	
@@ -28,6 +33,7 @@ public class SceneControl {
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
+		stage.setResizable(false);
 		stage.show();
 	}
 	
@@ -36,14 +42,45 @@ public class SceneControl {
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
+		stage.setResizable(false);
 		stage.show();
 	}
 	
+	public void toPlayMenuScene(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("PlayMenu.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.setResizable(false);
+		stage.show();
+	}
 	
+	public void toGamePlay(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("GamePlay.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.setResizable(false);
+		stage.show();
+	}
 	
+	public void toScoreboard(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("ScoreboardScene.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.setResizable(false);
+		stage.show();
+	}
 	
-	
-	
+	public void toHelp(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("HelpScene.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.setResizable(false);
+		stage.show();
+	}
 	
 
 }
