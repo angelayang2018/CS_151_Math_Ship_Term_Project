@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneControl">
    <children>
       <ImageView fitHeight="700.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -16,9 +16,9 @@
          </image>
       </ImageView>
       <Button layoutX="167.0" layoutY="350.0" mnemonicParsing="false" onAction="#toMainScene" text="Back" />
-      <TextField fx:id="username" layoutX="167.0" layoutY="271.0" promptText="Username" />
-      <PasswordField layoutX="167.0" layoutY="310.0" promptText="Password" />
-      <Button layoutX="226.0" layoutY="350.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" text="Login" />
+      <TextField fx:id="usernameField" layoutX="167.0" layoutY="271.0" onAction="#checkCredentials" promptText="Username" />
+      <PasswordField fx:id="passwordField" layoutX="167.0" layoutY="310.0" onAction="#checkCredentials" promptText="Password" />
+      <Button fx:id="loginButton" layoutX="219.0" layoutY="350.0" mnemonicParsing="false" onAction="#checkCredentials" prefHeight="27.0" prefWidth="108.0" text="Login" />
       <Label layoutX="132.0" layoutY="241.0" text="Login system is down for maintenance" textFill="#fc0000" />
    </children>
 </AnchorPane>
