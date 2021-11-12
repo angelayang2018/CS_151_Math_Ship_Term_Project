@@ -19,6 +19,7 @@ import javafx.util.Duration;
 
 public class GameStart
 {
+	
 	/*
 	private static final int WIDTH = 500;
 	private static final int HEIGHT = 700;
