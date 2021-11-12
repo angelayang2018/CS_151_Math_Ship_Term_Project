@@ -11,7 +11,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("MainScene.fxml")); //loads the MainScene.fxml file which was built in scenebuilder
+			Parent root = FXMLLoader.load(getClass().getResource("view/MainScene.fxml")); //loads the MainScene.fxml file which was built in scenebuilder
 			Scene scene1 = new Scene(root); //scene1 is now a Scene with the MainScene.fxml content
 			primaryStage.setScene(scene1); 
 			primaryStage.setResizable(false); //Makes it so that the application cannot be resized
