@@ -27,7 +27,7 @@ public class GamePlayScene {
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		GameStart game = new GameStart();
 
-		game.start(stage);
+		//game.start(stage);
 	}
 	
 	

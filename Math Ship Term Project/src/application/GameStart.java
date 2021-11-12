@@ -19,7 +19,7 @@ import javafx.util.Duration;
 
 public class GameStart
 {
-	
+	/*
 	private static final int WIDTH = 500;
 	private static final int HEIGHT = 700;
 	private static final int PLAYER_SIZE = 50;
@@ -34,7 +34,7 @@ public class GameStart
 
 		start(stage);
 	}
-	**/
+	
 	
 	public void start(Stage stage) throws Exception{
 		Canvas canvas = new Canvas(WIDTH, HEIGHT);
@@ -66,5 +66,5 @@ public class GameStart
 		//player.update();
 		player.draw();
 		player.posX = 250;
-	}
+	}*/
 }
