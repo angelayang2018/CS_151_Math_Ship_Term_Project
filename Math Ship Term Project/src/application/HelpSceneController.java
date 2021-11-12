@@ -55,7 +55,7 @@ public class HelpSceneController implements Initializable {
             50.0, 40.0 
         });
         
-
+        
         //Left Right Key translation
         PathTransition translate = new PathTransition();
         translate.setNode(spaceShip1);

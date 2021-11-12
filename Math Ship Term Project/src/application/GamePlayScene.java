@@ -24,10 +24,15 @@ public class GamePlayScene {
 	}
 	
 	public void startGame(ActionEvent event) throws Exception {
-		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		GameStart game = new GameStart();
-
+		// stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		//GameStart game = new GameStart();
 		//game.start(stage);
+		root = FXMLLoader.load(getClass().getResource("view/GameStart.fxml"));
+		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.setResizable(false);
+		stage.show();
 	}
 	
 	
