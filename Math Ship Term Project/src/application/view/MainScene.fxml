@@ -10,11 +10,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" styleClass="bodybg" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" styleClass="bodybg" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneControl">
    <children>
       <ImageView fitHeight="700.0" fitWidth="500.0">
          <image>
-            <Image url="@MainScrBG.png" />
+            <Image url="@../resources/MainScrBG.png" />
          </image>
       </ImageView>
       <Button layoutX="142.0" layoutY="388.0" mnemonicParsing="false" onAction="#toPlayMenuScene" prefHeight="27.0" prefWidth="217.0" text="Play As Guest">
@@ -38,22 +38,22 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.5058823823928833" green="0.7960784435272217" blue="0.615686297416687" />
+                        <Color blue="0.615686297416687" green="0.7960784435272217" red="0.5058823823928833" />
                      </color>
                   </Stop>
                   <Stop offset="0.45112781954887216">
                      <color>
-                        <Color red="0.5058823823928833" green="0.7960784435272217" blue="0.615686297416687" />
+                        <Color blue="0.615686297416687" green="0.7960784435272217" red="0.5058823823928833" />
                      </color>
                   </Stop>
                   <Stop offset="0.5150375939849623">
                      <color>
-                        <Color green="0.5058823823928833" blue="0.47058823704719543" />
+                        <Color blue="0.47058823704719543" green="0.5058823823928833" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.21070906519889832" green="0.3947368562221527" blue="0.18640351295471191" />
+                        <Color blue="0.18640351295471191" green="0.3947368562221527" red="0.21070906519889832" />
                      </color>
                   </Stop>
                </stops>
@@ -64,12 +64,12 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.6052306890487671" green="0.6842105388641357" blue="0.09186159819364548" />
+                        <Color blue="0.09186159819364548" green="0.6842105388641357" red="0.6052306890487671" />
                      </color>
                   </Stop>
                   <Stop offset="0.007518796992481203">
                      <color>
-                        <Color red="0.6052306890487671" green="0.6842105388641357" blue="0.09186159819364548" />
+                        <Color blue="0.09186159819364548" green="0.6842105388641357" red="0.6052306890487671" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
