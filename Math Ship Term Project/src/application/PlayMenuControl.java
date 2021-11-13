@@ -14,8 +14,8 @@ public class PlayMenuControl {
 	private Scene scene;
 	private Parent root; 
 	
-	public void toGamePlay(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("view/GamePlay.fxml"));
+	public void startGame(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("view/GameStart.fxml"));
 		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);

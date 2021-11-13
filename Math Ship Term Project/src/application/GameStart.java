@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import com.sun.javafx.robot.FXRobot;
 
 import javafx.animation.Animation;
+import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.PathTransition;
 import javafx.animation.RotateTransition;
@@ -46,20 +47,69 @@ public class GameStart implements Initializable
 	@FXML
 	private ImageView redShip1;
 	
-	
 	@FXML
 	private Button startGame;
 	
+	
+	
     public void startGame(){
     	startGame.setVisible(false);
-    	Ship ship = new Ship(redShip1);
-    	Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), new EventHandler<ActionEvent>() {
+    	//redShip1.setX(-30);
+    	
+		Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), e -> run(gamescene)));
+		timeline.setCycleCount(Timeline.INDEFINITE);
+		timeline.play();
+    	
+    	/*
+    	gamescene.setOnKeyPressed(new EventHandler<KeyEvent>(){
+    		@Override
+    		public void handle(KeyEvent event) {
+    			switch(event.getCode()) {
+    			case LEFT:
+    				redShip1.setX(-5);
+    				break;
+    			case RIGHT:
+    				redShip1.setX(5);
+    				break;
+				default:
+					break;
+    			}
+    		}
+    	});*/
+    	
+    	/*Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
-				run(ship);
+				run(gc);
 			}
 		}));
 		timeline.setCycleCount(Timeline.INDEFINITE);
-		timeline.play();
+		timeline.play();*/
+    	
+    	//stage.setScene(gamescene);
+    	//stage.show();
+    	/*AnimationTimer timer = new AnimationTimer() {
+    		@Override
+    		public void handle(long now) {
+    			
+    		}
+    	};
+    	timer.start();
+    	
+    	gamescene.setOnKeyPressed(e -> {
+    		switch (e.getCode()) {
+    		case A:
+    			moveLeft();
+    			break;
+    		case D:
+    			moveRight();
+    			break;
+			default:
+				break;
+    		}
+    	});
+    	//redShip1.setX(50);
+    	//Ship ship = new Ship(redShip1);
+    	
     	/**
     	gamescene.setOnKeyPressed(new EventHandler<KeyEvent>(){
 			  public void handle(KeyEvent event){
@@ -77,14 +127,16 @@ public class GameStart implements Initializable
 
     }
     
-    private void run(Ship ship) {
+    private void run(AnchorPane gamescene) {
     	gamescene.setOnKeyPressed(e -> {
     		switch (e.getCode()) {
     		case A:
-    			ship.moveLeft();
+    			System.out.println("Left");
+    			moveLeft();
     			break;
     		case D:
-    			ship.moveRight();
+    			System.out.println("Right");
+    			moveRight();
     			break;
 			default:
 				break;
@@ -92,6 +144,14 @@ public class GameStart implements Initializable
     	});
 
 	}
+    
+    private void moveLeft() {
+    	redShip1.setX(-5);
+    }
+    
+    private void moveRight() {
+    	redShip1.setX(5);
+    }
     
 	public void moveShip(KeyEvent event) {
 		/**

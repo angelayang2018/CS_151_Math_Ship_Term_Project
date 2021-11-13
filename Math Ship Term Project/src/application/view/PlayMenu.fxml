@@ -12,7 +12,7 @@
             <Image url="@../resources/CommonBG.png" />
          </image>
       </ImageView>
-      <Button layoutX="185.0" layoutY="287.0" mnemonicParsing="false" onAction="#toGamePlay" prefHeight="27.0" prefWidth="131.0" text="Start Game" />
+      <Button layoutX="185.0" layoutY="287.0" mnemonicParsing="false" onAction="#startGame" prefHeight="27.0" prefWidth="131.0" text="Start Game" />
       <Button layoutX="186.0" layoutY="323.0" mnemonicParsing="false" onAction="#toScoreboard" prefHeight="27.0" prefWidth="131.0" text="Scoreboard" />
       <Button layoutX="186.0" layoutY="358.0" mnemonicParsing="false" onAction="#toHelp" prefHeight="27.0" prefWidth="131.0" text="Help" />
       <Button layoutX="186.0" layoutY="394.0" mnemonicParsing="false" onAction="#toMainScene" prefHeight="27.0" prefWidth="131.0" text="Exit" />
