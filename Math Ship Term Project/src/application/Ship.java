@@ -25,14 +25,18 @@ public class Ship implements GameObject {
 		return new Bullet(posX + size/2 - Bullet.size /2, posY - Bullet.size);
 	}
 	**/
+	@FXML
+	public ImageView redShip;
 	
-	private ImageView redShip;
+	private double posX;
+	private double posY;
+	
+	
 	
 	public Ship(ImageView image) {
 		this.redShip = image;
-	}
-	public void move() {
-		
+		this.posX = redShip.getX();
+		this.posY = redShip.getY();
 	}
 	
 	public void setImage(ImageView image) {
@@ -51,12 +55,18 @@ public class Ship implements GameObject {
 		return redShip.getX();
 	}
 	
+	public void update() {
+		
+	}
+	
 	public void moveRight() {
-		redShip.setLayoutX(getLayoutX() + 10);
+		redShip.setLayoutX(getLayoutX() + 20);
 	}
 	public void moveLeft() {
-		redShip.setLayoutX(getLayoutX() - 10);
+		redShip.setLayoutX(getLayoutX() - 20);
 	}
+	
+	
 
 
 	

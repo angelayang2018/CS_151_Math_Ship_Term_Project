@@ -50,15 +50,35 @@ public class GameStart implements Initializable
 	@FXML
 	private Button startGame;
 	
-	
-	
+	public void action(String command) {
+		if (command.equals("moveUP")) {
+		System.out.println("UP");
+		}	
+		else if (command.equals("moveDOWN")) {
+			System.out.println("DOWN");
+		}	
+		else if (command.equals("moveRIGHT")) {
+			System.out.println("RIGHT");
+			//ship.moveRight();
+			redShip1.setX(10);
+		}	
+		else if (command.equals("moveLEFT")) {
+			System.out.println("LEFT");
+			//ship.moveLeft();
+			redShip1.setX(-10);
+		}
+		else if (command.equals("SPACE")) {
+			System.out.println("SHOOT");
+		}	
+	}
     public void startGame(){
     	startGame.setVisible(false);
     	//redShip1.setX(-30);
-    	
+    	/**
 		Timeline timeline = new Timeline(new KeyFrame(Duration.millis(100), e -> run(gamescene)));
 		timeline.setCycleCount(Timeline.INDEFINITE);
 		timeline.play();
+		**/
     	
     	/*
     	gamescene.setOnKeyPressed(new EventHandler<KeyEvent>(){
@@ -126,7 +146,7 @@ public class GameStart implements Initializable
     	
 
     }
-    
+    /**
     private void run(AnchorPane gamescene) {
     	gamescene.setOnKeyPressed(e -> {
     		switch (e.getCode()) {
@@ -144,6 +164,7 @@ public class GameStart implements Initializable
     	});
 
 	}
+	**/
     
     private void moveLeft() {
     	redShip1.setX(-5);

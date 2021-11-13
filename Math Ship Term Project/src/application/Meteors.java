@@ -1,6 +1,6 @@
 package application;
 
-public class Meteors extends Ship{
+public class Meteors{
 	/**
 	public Meteors(int posX, int posY, int size, Image image) {
 		this.posX = posX;
