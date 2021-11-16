@@ -38,7 +38,6 @@ public class SignUpControl {
 	
 	public void inputCredentials(){
 		
-		
 	}
 	
 
