@@ -106,7 +106,7 @@ public class PlayMenuControl implements Initializable {
 					gc.setFill(Color.RED);
 					gc.fillText("PAUSED", 250, 350);
 					gc.setFont(Font.font(25));
-					gc.fillText("Press ESC again to unpause", 250, 370);
+					gc.fillText("Press ESC again to unpause``", 250, 370);
 				}
 			} else if (keyPressedlist.contains("ESCAPE")) {
 				keyPressedlist.remove("ESCAPE");
@@ -119,6 +119,8 @@ public class PlayMenuControl implements Initializable {
 		stage.setResizable(false);
 		stage.show();
 	}
+	
+	//END OF startGame()------------------------------------------------------------------------------
 
 	private void run(GraphicsContext gc) {
 		gc.setFill(Color.grayRgb(20));
@@ -179,11 +181,20 @@ public class PlayMenuControl implements Initializable {
 
 				for (Meteor bomb : meteors) { // METEOR MATH COLLIDING LOGIC PINK(add) RED(MULT) GREEN(SUB)
 					if (shot.colide(bomb) && !bomb.exploding) {
-						if (bomb.img == PINKMETEOR) inequality++;
-						if (bomb.img == BLUEMETEOR && inequality / 2 >= 1) inequality /= 2;
-						if (bomb.img == REDMETEOR) inequality *= 2;
-						if (bomb.img == GREENMETEOR && inequality - 1 >= 1) inequality--;
-						score++;
+						if (bomb.img == PINKMETEOR) {
+							inequality++;
+							score++;
+						}
+						else if (bomb.img == BLUEMETEOR && inequality / 2 >= 1) {
+							inequality /= 2;
+						}
+						else if (bomb.img == REDMETEOR) {
+							inequality *= 2;
+						}
+						else if (bomb.img == GREENMETEOR && inequality - 1 >= 1) {
+							inequality--;
+						}
+					
 						bomb.explode();
 						shot.toRemove = true;
 					}
