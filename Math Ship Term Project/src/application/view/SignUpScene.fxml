@@ -7,18 +7,40 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SignUpControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SignUpControl">
    <children>
       <ImageView fitHeight="700.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/CommonBG.png" />
          </image>
       </ImageView>
-      <TextField layoutX="168.0" layoutY="329.0" prefHeight="27.0" prefWidth="160.0" promptText="Username" />
-      <PasswordField layoutX="168.0" layoutY="369.0" prefHeight="27.0" prefWidth="160.0" promptText="Password" />
-      <Button layoutX="226.0" layoutY="404.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="102.0" text="SIGN UP" />
-      <Button layoutX="167.0" layoutY="404.0" mnemonicParsing="false" onAction="#toMainScene" text="Back" />
-      <Label layoutX="132.0" layoutY="296.0" text="Sign up system is down for maintenance" textFill="RED" />
+      <TextField fx:id="usernameTextField" layoutX="175.0" layoutY="329.0" prefHeight="27.0" prefWidth="160.0" promptText="Username">
+         <font>
+            <Font name="GalacticaGrid" size="13.0" />
+         </font></TextField>
+      <PasswordField fx:id="passwordPasswordField" layoutX="175.0" layoutY="369.0" prefHeight="27.0" prefWidth="160.0" promptText="Password">
+         <font>
+            <Font name="GalacticaGrid" size="13.0" />
+         </font></PasswordField>
+      <Button fx:id="signUpButton" layoutX="233.0" layoutY="404.0" mnemonicParsing="false" onAction="#inputCredentials" prefHeight="27.0" prefWidth="102.0" text="SIGN UP">
+         <font>
+            <Font name="GalacticaGrid" size="13.0" />
+         </font></Button>
+      <Button layoutX="175.0" layoutY="404.0" mnemonicParsing="false" onAction="#toMainScene" text="Back">
+         <font>
+            <Font name="GalacticaGrid" size="13.0" />
+         </font></Button>
+      <Label fx:id="isConnected" layoutX="183.0" layoutY="291.0" text="Status" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="GalacticaGrid" size="13.0" />
+         </font></Label>
+      <Text fill="WHITE" layoutX="88.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SIGN UP" textAlignment="CENTER" wrappingWidth="337.6289825439453">
+         <font>
+            <Font name="GalacticaGrid" size="80.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

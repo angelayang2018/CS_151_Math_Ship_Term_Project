@@ -7,18 +7,40 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginControl">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LoginControl">
    <children>
       <ImageView fitHeight="700.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/CommonBG.png" />
          </image>
       </ImageView>
-      <Button layoutX="167.0" layoutY="350.0" mnemonicParsing="false" onAction="#toMainScene" text="Back" />
-      <TextField fx:id="usernameField" layoutX="167.0" layoutY="271.0" onAction="#checkCredentials" promptText="Username" />
-      <PasswordField fx:id="passwordField" layoutX="167.0" layoutY="310.0" onAction="#checkCredentials" promptText="Password" />
-      <Button fx:id="loginButton" layoutX="219.0" layoutY="350.0" mnemonicParsing="false" onAction="#checkCredentials" prefHeight="27.0" prefWidth="108.0" text="Login" />
-      <Label layoutX="132.0" layoutY="241.0" text="Login system is down for maintenance" textFill="#fc0000" />
+      <Button fx:id="backButton" layoutX="175.0" layoutY="404.0" mnemonicParsing="false" onAction="#toMainScene" text="Back">
+         <font>
+            <Font name="GalacticaGrid" size="13.0" />
+         </font></Button>
+      <TextField fx:id="usernameTextField" layoutX="175.0" layoutY="329.0" promptText="Username">
+         <font>
+            <Font name="GalacticaGrid" size="13.0" />
+         </font></TextField>
+      <PasswordField fx:id="passwordPasswordField" layoutX="175.0" layoutY="369.0" promptText="Password">
+         <font>
+            <Font name="GalacticaGrid" size="13.0" />
+         </font></PasswordField>
+      <Button fx:id="loginButton" layoutX="233.0" layoutY="404.0" mnemonicParsing="false" onAction="#checkCredentials" prefHeight="27.0" prefWidth="103.0" text="Login">
+         <font>
+            <Font name="GalacticaGrid" size="13.0" />
+         </font></Button>
+      <Label fx:id="isConnected" layoutX="100.0" layoutY="296.0" prefHeight="18.0" prefWidth="301.0" text="Status:" textAlignment="CENTER" textFill="#fc0000">
+         <font>
+            <Font name="GalacticaGrid" size="13.0" />
+         </font></Label>
+      <Text fill="WHITE" layoutX="123.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN " textAlignment="CENTER" wrappingWidth="264.1199951171875">
+         <font>
+            <Font name="GalacticaGrid" size="80.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

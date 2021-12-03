@@ -1,26 +1,41 @@
 package application;
 
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 public class ScoreBoardControl {
-	
+
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	
+
+	@FXML
+	private TableView<?> scoreboardTableView;
+	@FXML
+	private TableColumn<?, ?> rankingTableColumn;
+	@FXML
+	private TableColumn<?, ?> nameTableColumn;
+	@FXML
+	private TableColumn<?, ?> scoreTableColumn;
+	@FXML
+	private TableColumn<?, ?> pointsTableColumn;
+
 	public void toPlayMenuScene(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("view/PlayMenu.fxml"));
-		stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.show();
 	}
+
+	
 }
