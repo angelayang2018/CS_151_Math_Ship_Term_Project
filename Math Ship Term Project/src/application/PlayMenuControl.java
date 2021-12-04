@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
@@ -37,17 +38,22 @@ public class PlayMenuControl implements Initializable {
 	private Ship player;
 	private List<Bullet> bullets;
 	private List<Meteor> meteors;
-	private static final Random RAND = new Random();
+	private List<Stars> stars; //Stars in the background
+    private static final Random RAND = new Random();
 	private static final int WIDTH = 500; // width and height of canvas
 	private static final int HEIGHT = 700;
 	private static final int PLAYER_SIZE = 50; // this will be basically the hit box of player
-	private Pos positions = new Pos(0, 0);
+	private Pos positions = new Pos(250, 700);
 	private static int score;
 	private static int inequality;
+	private static int difficulty;
 	public GraphicsContext gc;
 	private static int lives;
+	static Color boolet = Color.RED;
+    static Color megaboolet = Color.DARKRED;
 
-	static final Image PLAYER_IMG = new Image("https://i.ibb.co/PD1KSQp/Red-Fly-Ship.png");
+
+	static Image PLAYER_IMG = new Image("https://i.ibb.co/PD1KSQp/Red-Fly-Ship.png");
 	static final Image REDMETEOR = new Image("https://i.ibb.co/k63WNzJ/Multiply-Fire.png");
 	static final Image BLUEMETEOR = new Image("https://i.ibb.co/5r8zbBF/divideball.png");
 	static final Image PINKMETEOR = new Image("https://i.ibb.co/HTsc3zQ/AddBall.png");
@@ -56,15 +62,42 @@ public class PlayMenuControl implements Initializable {
 	static final Image THREELIVES = new Image("https://i.ibb.co/vPj4Hyg/3Heart.png");
 	static final Image TWOLIVES = new Image("https://i.ibb.co/26mfSMt/2Heart.png");
 	static final Image ONELIVE = new Image("https://i.ibb.co/LxwRR87/1heart.png");
-	static final Image PLAYER_IMG_PINK = new Image("https://i.ibb.co/cL3fXLN/PINKSHIP.png");
 
-	static final Image METEOR_IMGS[] = { PINKMETEOR, GREENMETEOR }; // Meteor Images in array
+	static final Image METEOR_IMGS[] = { PINKMETEOR, GREENMETEOR, REDMETEOR, BLUEMETEOR }; // Meteor Images in array
 	final int MAX_METEORS = 10, MAX_BULLETS = MAX_METEORS * 2;
 	boolean gameOver = false;
 
 	@FXML
 	Label usernameTextField;
-
+	
+	public void blueship(ActionEvent event) throws IOException {
+		PLAYER_IMG = new Image("https://i.ibb.co/16M4r94/HAROONPURRPLE.png");
+		boolet = Color.ALICEBLUE;
+		megaboolet = Color.AQUAMARINE;
+		startGame(event);
+	}
+	
+	public void pinkship(ActionEvent event) throws IOException {
+		PLAYER_IMG = new Image("https://i.ibb.co/cL3fXLN/PINKSHIP.png");
+		boolet = Color.PINK;
+		megaboolet = Color.HOTPINK;
+		startGame(event);
+	}
+	
+	public void redship(ActionEvent event) throws IOException {
+		PLAYER_IMG = new Image("https://i.ibb.co/PD1KSQp/Red-Fly-Ship.png");
+		boolet = Color.RED;
+		megaboolet = Color.DARKRED;
+		startGame(event);
+	}
+	
+	public void greenship(ActionEvent event) throws IOException {
+		PLAYER_IMG = new Image("https://i.ibb.co/gFwQHcS/khuong.png");
+		boolet = Color.GREENYELLOW;
+		megaboolet = Color.FORESTGREEN;
+		startGame(event);
+	}
+	
 	public void startGame(ActionEvent event) throws IOException {
 
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -87,31 +120,83 @@ public class PlayMenuControl implements Initializable {
 			if (bullets.size() < MAX_BULLETS) { // shots cannot exceed twice the amount of enemy objects
 				bullets.add(player.shoot());
 			}
-			if ((gameOver && lives == 1) || inequality > 10) {
+			if ((gameOver && lives == 1) || inequality > 50) {
 				gameOver = false;
 				setup();
 			}
 		});
 
 		ArrayList<String> keyPressedlist = new ArrayList<String>();
+		keyPressedlist.add("ESCAPE");
+		keyPressedlist.add("TAB");
+		keyPressedlist.add("SHIFT");
+
 		canvas.setFocusTraversable(true);
 		canvas.setOnKeyPressed((KeyEvent e) -> {
-			String keyName = e.getCode().toString();
+		String keyName = e.getCode().toString();
 			// avoid duplicates to list
-			if (!keyPressedlist.contains(keyName)) {
-				keyPressedlist.add(keyName);
-				if (keyPressedlist.contains("ESCAPE")) {
+			
+				if (keyName.equals("ESCAPE")) {
 					timeline.pause();
+					gc.setFill(Color.BLACK);
+
+					gc.fillRect(100,  300, 300, 200);
 					gc.setFont(Font.font(50));
 					gc.setFill(Color.RED);
 					gc.fillText("PAUSED", 250, 350);
 					gc.setFont(Font.font(25));
-					gc.fillText("Press ESC again to unpause``", 250, 370);
+					gc.setFill(Color.WHITE);
+					gc.fillText("Enter to unpause", 250, 380);
+					
+					gc.setFont(Font.font(25));
+					gc.setFill(Color.WHITE);
+
+					gc.fillText("SHIFT to ship select", 250, 410);
+					gc.setFont(Font.font(25));
+					gc.setFill(Color.WHITE);
+
+					gc.fillText("TAB to menu", 250, 440);
+					
 				}
-			} else if (keyPressedlist.contains("ESCAPE")) {
-				keyPressedlist.remove("ESCAPE");
+				
+				
+			
+			
+			else if (keyName.equals("ENTER")) {
 				timeline.play();
 			}
+			else if(keyName.equals("TAB")) {
+				timeline.stop();
+				try {
+					
+					root = FXMLLoader.load(getClass().getResource("view/MainScene.fxml"));
+
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.setResizable(false);
+				stage.show();
+			}
+			else if(keyName.equals("SHIFT")) {
+				timeline.stop();
+				try {
+					
+					root = FXMLLoader.load(getClass().getResource("view/CharacterSelect.fxml"));
+
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.setResizable(false);
+				stage.show();
+			}
+			
+			
 		});
 
 		setup();
@@ -119,8 +204,6 @@ public class PlayMenuControl implements Initializable {
 		stage.setResizable(false);
 		stage.show();
 	}
-	
-	//END OF startGame()------------------------------------------------------------------------------
 
 	private void run(GraphicsContext gc) {
 		gc.setFill(Color.grayRgb(20));
@@ -132,9 +215,9 @@ public class PlayMenuControl implements Initializable {
 		gc.fillText("Score: " + score, 60, 20);
 		gc.setFont(Font.font(30));
 		gc.setFill(Color.YELLOW);
-		gc.fillText(inequality + " < 10", 250, 40);
+		gc.fillText(inequality + " < 50", 250, 40);
 
-		if (inequality > 10 || (gameOver && lives == 1)) {
+		if (inequality > 50 || (gameOver && lives == 1)) {
 			gameOver = true;
 			gc.setFont(Font.font(35));
 			gc.setFill(Color.RED);
@@ -154,6 +237,11 @@ public class PlayMenuControl implements Initializable {
 			} else if (lives == 1) {
 				gc.drawImage(ONELIVE, 400, 10);
 			}
+			
+			//stars.forEach(Stars::draw(gc));
+			for( Stars star : stars) {
+				star.draw(gc);
+			}
 			player.update();
 			player.draw(gc); // draws the players image
 
@@ -161,10 +249,11 @@ public class PlayMenuControl implements Initializable {
 				player.posX = (int) positions.x;
 				player.posY = (int) positions.y;
 			}
+			
 
 			meteors.stream().peek(Ship::update).forEach(e -> { // checks if player collides
 				e.draw(gc);
-				e.setSpeed(score);
+				e.setSpeed(difficulty);
 				if (player.collide(e) && !player.exploding) {
 					player.explode();
 				}
@@ -176,23 +265,31 @@ public class PlayMenuControl implements Initializable {
 					bullets.remove(i);
 					continue;
 				}
+				shot.setSpeed(score);
 				shot.update();
-				shot.draw(gc);
+				shot.draw(gc, boolet, megaboolet);
 
 				for (Meteor bomb : meteors) { // METEOR MATH COLLIDING LOGIC PINK(add) RED(MULT) GREEN(SUB)
 					if (shot.colide(bomb) && !bomb.exploding) {
 						if (bomb.img == PINKMETEOR) {
 							inequality++;
 							score++;
+							difficulty+=2;
 						}
 						else if (bomb.img == BLUEMETEOR && inequality / 2 >= 1) {
 							inequality /= 2;
+							difficulty+=2;
+							score++;
 						}
 						else if (bomb.img == REDMETEOR) {
 							inequality *= 2;
+							score = score + 50;
+							difficulty+=2;
 						}
 						else if (bomb.img == GREENMETEOR && inequality - 1 >= 1) {
 							inequality--;
+							difficulty+=2;
+							score++;
 						}
 					
 						bomb.explode();
@@ -207,15 +304,24 @@ public class PlayMenuControl implements Initializable {
 			}
 			gameOver = player.destroyed; // if player is destroyed then the game is over
 
+			stars.add(new Stars());
+			
+			for(int i = 0; i < stars.size(); i++) {
+				if(stars.get(i).posY > HEIGHT) {
+					stars.remove(i); //removes from list if stars goes off screen.
+				}
+			}
 		}
 	}
 
 	private void setup() {
 		bullets = new ArrayList<>();
 		meteors = new ArrayList<>();
-		player = new Ship(250, 650, PLAYER_SIZE, PLAYER_SIZE, PLAYER_IMG_PINK);
+		stars = new ArrayList<>();
+		player = new Ship(250, 650, PLAYER_SIZE, PLAYER_SIZE, PLAYER_IMG);
 		score = 0;
 		inequality = 1;
+		difficulty = 0;
 		lives = 3;
 		IntStream.range(0, MAX_METEORS).mapToObj(i -> this.newBomb()).forEach(meteors::add);
 	}
@@ -223,7 +329,7 @@ public class PlayMenuControl implements Initializable {
 	private void reset() {
 		bullets = new ArrayList<>();
 		meteors = new ArrayList<>();
-		player = new Ship(250, 650, PLAYER_SIZE, PLAYER_SIZE, PLAYER_IMG_PINK);
+		player = new Ship(250, 650, PLAYER_SIZE, PLAYER_SIZE, PLAYER_IMG);
 		inequality = 1;
 		IntStream.range(0, MAX_METEORS).mapToObj(i -> this.newBomb()).forEach(meteors::add);
 	}

@@ -21,7 +21,7 @@ public class Meteor extends Ship {
         }
     }
 
-    public void setSpeed(int score){
-        speed = (score/1000) + 2; // can change this to adjust difficulty
+    public void setSpeed(int difficulty){
+        speed = (difficulty/100) + 2; // can change this to adjust difficulty
     }
 }

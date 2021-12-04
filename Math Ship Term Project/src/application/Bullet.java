@@ -10,7 +10,7 @@ public class Bullet {
 		int posX, posY, speed = 10;
 		static final int size = 6;
         int score;
-
+        
 		public Bullet(int posX, int posY) {
 			this.posX = posX;
 			this.posY = posY;
@@ -20,10 +20,10 @@ public class Bullet {
 			posY -= speed;
 		}
 
-		public void draw(GraphicsContext gc) {
-			gc.setFill(Color.PINK);
+		public void draw(GraphicsContext gc, Color boolet, Color megaboolet) {
+			gc.setFill(boolet);
 			if (score > 20) {
-				gc.setFill(Color.HOTPINK);
+				gc.setFill(megaboolet);
 				speed = 30;
 				gc.fillRect(posX, posY, size + 5, size + 15);
 			} else {
