@@ -1,0 +1,7 @@
+@font-face{
+    src: url("Galacticagrid-8Mr7J.ttf");
+}
+
+*{
+    -fx-font-family: "GalacticaGrid";
+}

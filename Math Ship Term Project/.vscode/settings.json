@@ -1,0 +1,17 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/angelayang/Downloads/javafx-sdk-17.0.0.1/lib/javafx.base.jar",
+        "/Users/angelayang/Downloads/javafx-sdk-17.0.0.1/lib/javafx.controls.jar",
+        "/Users/angelayang/Downloads/javafx-sdk-17.0.0.1/lib/javafx.web.jar",
+        "/Users/angelayang/Downloads/javafx-sdk-17.0.0.1/lib/javafx.swing.jar",
+        "/Users/angelayang/Downloads/javafx-sdk-17.0.0.1/lib/javafx.graphics.jar",
+        "/Users/angelayang/Downloads/javafx-sdk-17.0.0.1/lib/javafx.media.jar",
+        "/Users/angelayang/Downloads/javafx-sdk-17.0.0.1/lib/javafx-swt.jar",
+        "/Users/angelayang/Downloads/javafx-sdk-17.0.0.1/lib/javafx.fxml.jar",
+        "/Users/angelayang/Downloads/mysql-connector-java-8.0.27/mysql-connector-java-8.0.27.jar",
+        "/Users/angelayang/Downloads/sqlite-jdbc-3.36.0.3 (1).jar"
+    ]
+}

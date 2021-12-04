@@ -20,7 +20,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
@@ -68,7 +67,9 @@ public class PlayMenuControl implements Initializable {
 	boolean gameOver = false;
 
 	@FXML
-	Label usernameTextField;
+	Label usernameLabel;
+
+	private String user;
 	
 	public void blueship(ActionEvent event) throws IOException {
 		PLAYER_IMG = new Image("https://i.ibb.co/16M4r94/HAROONPURRPLE.png");
@@ -194,6 +195,12 @@ public class PlayMenuControl implements Initializable {
 				stage.setScene(scene);
 				stage.setResizable(false);
 				stage.show();
+			}else if(keyName.equals("SPACEBAR")) {
+				if(gameOver) {
+					gameOver = false;
+					
+					
+				}
 			}
 			
 			
@@ -339,7 +346,10 @@ public class PlayMenuControl implements Initializable {
 	}
 
 	public void toScoreboard(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("view/ScoreboardScene.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("view/ScoreboardScene.fxml"));
+		root = loader.load();
+		ScoreBoardControl scoreBoardControl= (ScoreBoardControl) loader.getController();
+		scoreBoardControl.setUserName(user);
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
@@ -348,7 +358,10 @@ public class PlayMenuControl implements Initializable {
 	}
 
 	public void toHelp(ActionEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("view/HelpScene.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("view/HelpScene.fxml"));
+		root = loader.load();
+		HelpSceneController helpSceneController = (HelpSceneController) loader.getController();
+		helpSceneController.setUserName(user);
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
@@ -366,14 +379,14 @@ public class PlayMenuControl implements Initializable {
 	}
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+	public void initialize(URL location, ResourceBundle resources){
 
 	}
 
-	public void getUser(String user) {
-		usernameTextField.setText(user);
-
+	public void setUserName(String user) {
+		if(user != null){
+			usernameLabel.setText(user);
+			this.user = user;
+		}
 	}
-
 }
